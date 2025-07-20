@@ -73,3 +73,6 @@ const ProductCategory = memo(function ProductCategory({
       </CardContent>
     </Card>
   );
+});
+
+export default ProductCategory;
