@@ -131,3 +131,6 @@ const BillArea = memo(function BillArea({
       </CardContent>
     </Card>
   );
+});
+
+export default BillArea;
