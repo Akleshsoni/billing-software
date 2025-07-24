@@ -1,4 +1,3 @@
-import { memo, useMemo } from "react";
 import { FileText } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -11,7 +10,7 @@ interface BillAreaProps {
   billCalculation: BillCalculation;
 }
 
-const BillArea = memo(function BillArea({
+export default function BillArea({
   customerName,
   customerPhone,
   billNumber,
@@ -19,7 +18,7 @@ const BillArea = memo(function BillArea({
 }: BillAreaProps) {
   const currentDate = new Date().toLocaleDateString("en-IN");
 
-  const generateBillContent = useMemo(() => {
+  const generateBillContent = () => {
     if (billCalculation.items.length === 0) {
       return (
         <div className="text-center text-slate-500 py-8">
@@ -113,7 +112,7 @@ const BillArea = memo(function BillArea({
         </div>
       </div>
     );
-  }, [billCalculation, billNumber, customerName, customerPhone, currentDate]);
+  };
 
   return (
     <Card className="shadow-md">
@@ -125,12 +124,10 @@ const BillArea = memo(function BillArea({
         
         <div className="bg-slate-50 rounded-lg border">
           <ScrollArea className="h-96 p-4">
-            {generateBillContent}
+            {generateBillContent()}
           </ScrollArea>
         </div>
       </CardContent>
     </Card>
   );
-});
-
-export default BillArea;
+}

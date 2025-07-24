@@ -1,4 +1,3 @@
-import { memo } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 
@@ -32,7 +31,7 @@ const IconComponent = ({ icon, className }: { icon: string; className: string })
   );
 };
 
-const ProductCategory = memo(function ProductCategory({
+export default function ProductCategory({
   title,
   icon,
   iconColor,
@@ -73,6 +72,4 @@ const ProductCategory = memo(function ProductCategory({
       </CardContent>
     </Card>
   );
-});
-
-export default ProductCategory;
+}
